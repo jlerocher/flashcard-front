@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply dark:bg-blue-gray-900 dark:text-blue-gray-200;
+    @apply font-body bg-blue-gray-50
+}
+
+header {
+    @apply w-full px-4 py-2 items-center flex justify-between shadow-xl bg-white mb-4;
+    @apply dark:bg-blue-gray-800 dark:text-white;
+}
+
+h1 {
+    @apply text-4xl font-bold font-serif text-[#3b82f6];
+}
+
+h2 {
+    @apply my-5 mx-2 text-center text-2xl font-serif font-bold;
+}
+
+footer {
+    @apply bg-white rounded-none flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between;
+    @apply dark:bg-blue-gray-800
+}
+
+footer p {
+    @apply dark:text-white;
+}
