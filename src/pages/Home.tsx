@@ -4,6 +4,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import ButtonVariants from "../components/ButtonVariants";
 import Cards from "../components/Cards";
 import CarouselCustomNavigation from "../components/CarouselCustomNavigation";
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -30,7 +31,7 @@ const Home = () => {
                 </div>
                 
             }
-            cardDescription={
+            cardContent={
                 <div className="space-y-4">
                     <p>
                         Transformez votre manière d'apprendre avec notre application de 
@@ -51,11 +52,13 @@ const Home = () => {
                     btnType="primary"
                     size="lg"
                 >
-                     <span>Commencer</span> 
+                     <Link to="/create-card">Commencer</Link> 
                      <BsFillArrowRightCircleFill className="text-2xl"/>   
                  </ButtonVariants>
             }
             />
+
+            <Cards cardType="testimonial" />
             
         </>
         

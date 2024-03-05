@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    @apply w-full px-4 py-2 items-center flex justify-between shadow-xl bg-white mb-4;
+    @apply w-full px-2 py-2 items-center flex justify-between shadow-xl bg-white mb-4;
     @apply dark:bg-blue-gray-800 dark:text-white;
 }
 
