@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { ReactTyped } from "react-typed";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
