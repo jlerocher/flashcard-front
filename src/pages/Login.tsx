@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import  { useEffect, useState } from 'react'
 import Cards from '../components/Cards'
-import { Checkbox, Input, Typography } from '@material-tailwind/react'
+import { Checkbox, Dialog, DialogBody, Input, Typography } from '@material-tailwind/react'
 import { useThemeStore, ThemeProps } from '../store/ThemeStore'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 import ButtonVariants from '../components/ButtonVariants'
@@ -24,6 +24,9 @@ const Login = () => {
         sessionStorage.getItem("auth-token") != null ? (setIsLoggedIn(true)) : setIsLoggedIn(false)
         const userInfo : User | null = sessionStorage.getItem("user-info") ? JSON.parse(sessionStorage.getItem("user-info") as string) : null;
         setUserInfo(userInfo)
+        sessionStorage.getItem("auth-token") != null && setTimeout(() => {
+            navigate("/")
+        }, 2000)
         
     }, [])
 
@@ -35,7 +38,17 @@ const Login = () => {
         }
     }
     if (isLoggedIn === true) {
-        navigate("/")
+        return(
+            <p 
+            className="mx-10 text-center text-2xl my-80 font-bold"
+            >
+                Connexion reussie. 
+                <br />
+                Patientez vous serez redirigé sous peu !
+            </p>
+        )
+        
+        
     } else {
         return (
     
