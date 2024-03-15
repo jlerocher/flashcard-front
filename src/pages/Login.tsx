@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import  { useEffect, useState } from 'react'
 import Cards from '../components/Cards'
-import { Checkbox, Dialog, DialogBody, Input, Typography } from '@material-tailwind/react'
+import { Checkbox, Input, Typography } from '@material-tailwind/react'
 import { useThemeStore, ThemeProps } from '../store/ThemeStore'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 import ButtonVariants from '../components/ButtonVariants'
