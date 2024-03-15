@@ -62,10 +62,10 @@ jobs:
         with:
           node-version: "v18.19.0"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
-
-      - name: Activate pnpm
-        run: npm install -g pnpm
+          cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
+          
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
 
       - name: Install dependencies
         run: pnpm install
