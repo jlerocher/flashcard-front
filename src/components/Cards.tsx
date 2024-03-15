@@ -2,7 +2,6 @@ import { Card, CardBody, CardFooter, CardHeader, Typography, Avatar, Input, Text
 import { ReactNode, useState } from "react";
 import { ThemeProps, useThemeStore } from "../store/ThemeStore";
 import ButtonVariants from "./ButtonVariants";
-import { ReactTyped } from "react-typed";
 import DragDrop from "./DragDrop";
 import { FaQuestionCircle } from "react-icons/fa";
 import { FlashCardState, useFlashCardStore } from "../store/FlashCardStore";
@@ -23,7 +22,7 @@ const Cards: React.FC<CardsProps> = ({ cardType, cardHeader, cardContent, cardFo
     const [isAnswerVisible, setIsAnswerVisible] = useState(false);
     const [questionValue, setQuestionValue] = useState("");
     const [answerValue, setAnswerValue] = useState("");
-    const [categoriesValues, setCategoriesValues] = useState([""]) 
+    const [categoriesValues, setCategoriesValues] = useState([""])
 
     const verifyInputs = () => {
         if (questionValue.length > 0 && answerValue.length > 0 ) {
@@ -229,9 +228,7 @@ const Cards: React.FC<CardsProps> = ({ cardType, cardHeader, cardContent, cardFo
                     placeholder={undefined}
                     className={`text-2xl bg-blue-gray-50 dark:bg-blue-gray-800 italic text-center leading-9 ${isAnswerVisible ? "py-6" : "py-24"} rounded-md`}
                     >
-                      {isAnswerVisible && <ReactTyped 
-                      strings={[answer || ""]} 
-                      typeSpeed={30}/>}
+                      {isAnswerVisible && answer}
                     </Typography>
                   <div 
                   className="group mt-8 inline-flex flex-wrap items-center gap-3"
@@ -278,19 +275,18 @@ const Cards: React.FC<CardsProps> = ({ cardType, cardHeader, cardContent, cardFo
                 <form >
                     <CardHeader 
                     floated={false} 
-                    color="white" 
+                    color={theme === "light" ? "white" : "blue-gray"} 
                     placeholder={undefined}
-                    className="py-4 px-2 "
+                    className="py-4 px-2 dark:text-white"
                     >
                         <label 
                         htmlFor="img-input"
-                        className="text-xl py-2"
+                        className="text-xl py-2 text-black dark:text-white"
                         >
                             Choisissez une image pour votre carte | <br />
                             Format idéal: 1200 x 900 <br />
                             Extensions : jpeg ou png
                         </label>
-
                         <DragDrop />
 
                     </CardHeader>
@@ -298,10 +294,11 @@ const Cards: React.FC<CardsProps> = ({ cardType, cardHeader, cardContent, cardFo
                     <CardBody 
                     placeholder={undefined}
                     >
-                    <div className="space-y-5 mb-3 flex items-center justify-between">
+                    <div className="space-y-5 mb-3 flex items-center justify-between ">
                         <Input 
                         crossOrigin=""
                         type="text"
+                        color="black"
                         variant="outlined"
                         label="Votre question"
                         size="lg"
@@ -312,7 +309,7 @@ const Cards: React.FC<CardsProps> = ({ cardType, cardHeader, cardContent, cardFo
                             setQuestion(questionValue)
                         }}
                         icon={<FaQuestionCircle />}
-                        className="font-bold text-xl"
+                        className="font-bold text-xl dark:text-white"
                         />
                         
                     </div>
@@ -331,10 +328,10 @@ const Cards: React.FC<CardsProps> = ({ cardType, cardHeader, cardContent, cardFo
                     onBlur={() => {
                         setAnswer(answerValue)
                     }}
-                    className="text-xl"
+                    className="text-xl dark:text-white"
                     />
                     <div 
-                    className="group mt-8 inline-flex flex-wrap items-center gap-3"
+                    className="group mt-8 inline-flex flex-wrap items-center gap-3 dark:text-white"
                     >
                         <Input 
                         crossOrigin=""
@@ -347,13 +344,13 @@ const Cards: React.FC<CardsProps> = ({ cardType, cardHeader, cardContent, cardFo
                         onBlur={() => {
                             setCategories(categoriesValues)
                         }}
-                        className="text-xl"
+                        className="text-xl dark:text-white"
                         />
                         <Typography
                         placeholder=""
                         variant="small"
                         color="gray"
-                        className="mt-2 flex items-center gap-1 font-normal"
+                        className="mt-2 flex items-center gap-1 font-normal dark:text-white"
                         >
                             <svg
                             xmlns="http://www.w3.org/2000/svg"

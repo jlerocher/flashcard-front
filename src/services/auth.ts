@@ -78,6 +78,8 @@ export const signIn = async (emailValue: string, passwordValue: string) => {
 export const handleLogout = async () => {
     
     const { error } = await supabase.auth.signOut();
+    sessionStorage.clear();
+    localStorage.clear();
     console.log(error);
     
 };

@@ -6,19 +6,24 @@ import {
   TabPanel,
 } from "@material-tailwind/react";
 import React, { useEffect } from "react";
-
+import { User } from "@supabase/supabase-js";
 import {BsPencilSquare } from "react-icons/bs";
 import { MdPreview } from "react-icons/md";
 import Cards from "../components/Cards";
+import { useUserStore } from "../store/UserStore";
 
 
 const CreateCard = () => {
+    const { setIsLoggedIn, setUserInfo } = useUserStore()
     useEffect(() => {
         document.title = "Créez votre carte et prévisualisez là - FlashCards";
         const meta = document.createElement('meta');
         meta.name = "viewport";
         meta.content = "width=device-width, initial-scale=1.0";
-        document.head.append(meta);    
+        document.head.append(meta);
+        sessionStorage.getItem("auth-token") != null ? (setIsLoggedIn(true)) : setIsLoggedIn(false)
+            const userInfo : User | null = sessionStorage.getItem("user-info") ? JSON.parse(sessionStorage.getItem("user-info") as string) : null;
+            setUserInfo(userInfo)
     }, [])
         const data = [
           
