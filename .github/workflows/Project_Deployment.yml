@@ -58,10 +58,9 @@ jobs:
             fi
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: pnpm/action-setup@v3
         with:
           node-version: "v18.19.0"
-          run: pnpm/action-setup@v3
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
 
